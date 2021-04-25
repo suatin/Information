@@ -7,7 +7,6 @@
   <body bgcolor="#FFF5EE">
   <center>
       <h1 style="color:white; font-size: 45px; background-color:maroon">TUP-Cavite Student Organization</h1>
-      <p></p>
 
   <form method="post">
   {% csrf_token %}
@@ -16,25 +15,26 @@
       <input type = "date" id="today" name="today"><br><br>
 
       <label id="orgs"><b>Accredited Student Organization:</b></label><br>
-      <input bold type="text" id="org" name="org" placeholder="Future Educators Organization"><br><br>
+      <input bold type="text" id="org" name="org" placeholder="e.g. University Student Organization"><br><br>
 
       <label id="usernames"><b>Full Name:</b></label><br>
-      <input bold type="text" id="username" name="username" placeholder="Suatin, Edmarie L."><br><br>
+      <input bold type="text" id="username" name="username" placeholder="e.g. Lyra F. Eria"><br><br>
 
-      <label for="batch"><b>Course:</b></label><br>
-      <input bold type="text" id="batch" name="batch" placeholder=" BSIE-ICT-3A"><br><br>
+      <label id="batch"><b>Course:</b></label><br>
+      <input bold type="text" id="batchs" name="batchs" placeholder="e.g. BSIE-ICT-3A"><br><br>
 
-      <label for="concerns"><b>Student Number:</b></label><br>
-      <input bold type="text" id="cern" name="cern" placeholder="TUPC-18-04-21"><br>
+      <label id="concerns"><b>Student Number:</b></label><br>
+      <input bold type="text" id="cern" name="cern" placeholder="e.g. TUPC-20-**-**"><br>
 
   <div id="gender">
-      <p><b>Gender:</b></p>
+      <p id="p2"><b>Gender:</b></p>
       <input type="radio"   id="male" name="gender" value="Male">
-      <label for="circle">Male</label>
-      <input type="radio"   id="female" name="gender" value="Female">
-      <label for="circle">Female</label><br><br>
+      <label id="circle">Male</label>
 
-      <input type="Submit" name="Submit" id="Submit" value="Submit">
+      <input type="radio"   id="female" name="gender" value="Female">
+      <label id="circle">Female</label><br><br>
+
+      <input type="submit" name="submit1" id="submit2" value="Submit">
   </div>
   </form>
 

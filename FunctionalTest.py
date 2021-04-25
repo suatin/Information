@@ -1,88 +1,89 @@
 from selenium import webdriver
-browser = webdriver.Firefox()
-browser.get('http:/127.0.0.1:8000')
-
-'''
 import unittest
+
 from selenium.webdriver.common.keys import Keys
 import time
 
 class PageTest(unittest.TestCase):
 
+	
 	def setUp(self):
 		self.browser = webdriver.Firefox()
-		#self.browser.maximize_window()
-
-	def tearDown(self):
-		self.browser.close()
-		self.browser.quit()
-		print("Finally, Thank you Lord)
-
 		
 
 	def test_browser_title(self):
 		self.browser.get('http://localhost:8000')
-		self.assertIn('ACSO', self.browser.title)
+		self.assertIn('TUP-C ACSO', self.browser.title)
 
-		#H1
-		headerText = self.browser.find_element_by_tag_name('h1').text
-		self.assertIn('University Student Government', headerText)
+		EmText= self.browser.find_element_by_tag_name('h1').text
+		self.assertIn('TUP-Cavite Student Organization', EmText)
 
-		#Select
-		select = self.browser.find_element_by_id('org').send_keys('FUTURE EDUCATORS ORGANIZATIONS')
+		form = self.browser.find_element_by_tag_name('form')	
+
+		date = self.browser.find_element_by_id('today').click()
+		time.sleep(1)
+		date = self.browser.find_element_by_id('today').send_keys("2004-04-04")
+		time.sleep(1)
+
+		l1 = self.browser.find_element_by_id('orgs').text
+		self.assertIn('Accredited Student Organization:', l1)
+
+		l2 = self.browser.find_element_by_id('usernames').text
+		self.assertIn('Full Name:', l2)
+
+		l3 = self.browser.find_element_by_id('batch').text
+		self.assertIn('Course:', l3)
+
+		l4 = self.browser.find_element_by_id('concerns').text
+		self.assertIn('Student Number:', l4)
+
+		Prg= self.browser.find_element_by_tag_name('p').text
+		self.assertIn('Date:', Prg)
+
+		pr2 = self.browser.find_element_by_id('p2').text
+		self.assertIn('Gender:', pr2)
+
+		input22 = self.browser.find_element_by_id('org')  
+		self.assertEqual(input22.get_attribute('placeholder'),'e.g. University Student Organization')
+		input22 = self.browser.find_element_by_id('org').send_keys("Future Educators Organization")
 		time.sleep(2)
 
-		#Select
-		select = self.browser.find_element_by_id('org').click()
+
+		input33 = self.browser.find_element_by_id('username')  
+		self.assertEqual(input33.get_attribute('placeholder'),'e.g. Lyra F. Eria')
+		input33 = self.browser.find_element_by_id('username').send_keys("Edmarie L. Suatin")
 		time.sleep(2)
 
 
-
-
-		label1 = self.browser.find_element_by_id('username').text
-		self.assertIn('Full Name:', label1)
-		Fullname = self.browser.find_element_by_name('username').send_keys("Edmarie L. Suatin")
-		time.sleep(2)
-  	
-
-		#Firstname MI. Surname
-		label1 = self.browser.find_element_by_id('batch').text
-		self.assertIn('Course:', label1)
-		course = self.browser.find_element_by_name('batch').send_keys("BSIE-ICT")
+		input44 = self.browser.find_element_by_id('batchs')  
+		self.assertEqual(input44.get_attribute('placeholder'),'e.g. BSIE-ICT-3A')
+		input44 = self.browser.find_element_by_id('batchs').send_keys("BSCE-1A")
 		time.sleep(2)
 
-		#Finally
-		button = self.browser.find_element_by_id('coc').click()
+
+		input55 = self.browser.find_element_by_id('cern')  
+		self.assertEqual(input55.get_attribute('placeholder'),'e.g. TUPC-20-**-**')
+		input55 = self.browser.find_element_by_id('cern').send_keys("TUPC-18-04-05")
 		time.sleep(2)
 
-	#	headerText = self.browser.find_element_by_tag_name('p').text
-	#	self.assertIn('University Student Government', headerText)
-	#	AssertionError: 'University Student Government' not found in 'List of Accreditted Student Organization 2020-2021'
+		g1 = self.browser.find_element_by_name('gender').click()
+		time.sleep(1)
 
+		g1 = self.browser.find_element_by_name('gender').click()
+		time.sleep(1)
 
-	#	H1
-	#	headerText = self.browser.find_element_by_tag_name('h1').text
-	#	self.assertIn('University Student Government', headerText)
-	#   self.assertIn('University Student Government' headerText)
-    #	SyntaxError: invalid syntax
+		m1 = self.browser.find_element_by_id('male').click()
+		time.sleep(1)
 
+		f1 = self.browser.find_element_by_id('female').click()
+		time.sleep(1)
 
-	#	label1 = self.browser.find_element_by_id('username').text
-	#	self.assertIn('Full Name:', label1)
-	#	firstname = self.browser.find_element_by_name('username').send_keys("Edmarie L. Suatin")
-	#	time.sleep(2)
-  	
+		submitbutton = self.browser.find_element_by_name('submit1').click()
+		time.sleep(1)
 
-	#	Select
-	#	select = self.browser.find_element_by_id('org').send_keys('FUTURE EDUCATORS ORGANIZATIONS')
-	#	time.sleep(2)
-	#	select = selfbrowser.find_element_by_id('org').send_keys('FUTURE EDUCATORS ORGANIZATIONS')
-	#	NameError: name 'selfbrowser' is not defined
-
-	#	if _name__ == '__main__':
-	#	NameError: name '_name__' is not defined
-
+		self.browser.quit()	
+		self.browser = webdriver.Firefox()
+		self.browser.get('http://localhost:8000')
 
 if __name__ == '__main__':
 	unittest.main()
-'''
