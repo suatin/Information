@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>TUP-C ACSO</title>
+  </head>
+
+  <body bgcolor="#FFF5EE">
+  <center>
+      <h1 style="color:white; font-size: 45px; background-color:maroon">TUP-Cavite Student Organization</h1>
+      <p></p>
+
+  <form method="post">
+  {% csrf_token %}
+
+      <p><b> Date: </b></p>
+      <input type = "date" id="today" name="today"><br><br>
+
+      <label id="orgs"><b>Accredited Student Organization:</b></label><br>
+      <input bold type="text" id="org" name="org" placeholder="Future Educators Organization"><br><br>
+
+      <label id="usernames"><b>Full Name:</b></label><br>
+      <input bold type="text" id="username" name="username" placeholder="Suatin, Edmarie L."><br><br>
+
+      <label for="batch"><b>Course:</b></label><br>
+      <input bold type="text" id="batch" name="batch" placeholder=" BSIE-ICT-3A"><br><br>
+
+      <label for="concerns"><b>Student Number:</b></label><br>
+      <input bold type="text" id="cern" name="cern" placeholder="TUPC-18-04-21"><br>
+
+  <div id="gender">
+      <p><b>Gender:</b></p>
+      <input type="radio"   id="male" name="gender" value="Male">
+      <label for="circle">Male</label>
+      <input type="radio"   id="female" name="gender" value="Female">
+      <label for="circle">Female</label><br><br>
+
+      <input type="Submit" name="Submit" id="Submit" value="Submit">
+  </div>
+  </form>
+
+  </center>
+  </body>
+</html> 

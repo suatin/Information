@@ -1,0 +1,46 @@
+<html lang="en">
+	<head>
+    	<meta charset="UTF-8">
+    	<title>Collector</title>
+	</head>
+
+		<style>td,th {border: 3px solid maroon;}</style>
+
+	<body bgcolor="#FFF5EE">
+	<center>
+		<h1 style="color:white; font-size: 40px; background-color:maroon">Member Information Collector</h1>
+	</center>
+
+		<div class="ems">
+		{% for ems in ems %}
+		<div class="ems">
+
+
+	<center>
+			<table style="width:50%">
+
+			
+				<td>
+				<center><b>Date </b>{{ forloop.counter }}:<br>{{ ems.today }}<br><br></center>
+
+				<center><b>Organization:</b><br>{{ ems.org }}<br><br></center>
+			
+				<center><b>Full Name: </b><br>{{ ems.username }}<br><br></center>
+			
+		
+				<center><b>Course:</b><br>{{ ems.batch }}<br><br></center>
+		
+				<center><b>Student Number: </b><br>{{ ems.cern }}<br><br></center>
+			
+			
+				<center><b>Gender: <br></b>{{ ems.gender }}<br><br></center>
+				</td>		
+		<br>
+		
+		</table>
+	</center>
+
+		</div>
+	{% endfor %}
+	</body>
+</html> 

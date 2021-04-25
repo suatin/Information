@@ -1,9 +1,9 @@
-from django.conf.urls import url
 from django.contrib import admin
-from ProjectList import views
+from django.urls import path, include
+
+
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^about/$', views.about),
-    url(r'^$', views.homepage),
-]
+	path('admin/', admin.site.urls),
+	path('', include('edlist.urls')),
+] 
