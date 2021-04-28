@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
       <title>TUP-C ACSO</title>
@@ -12,19 +11,27 @@
   {% csrf_token %}
 
       <p><b> Date: </b></p>
-      <input type = "date" id="today" name="today"><br><br>
+      <input type = "date" id="today" name="today">
+      <br><br>
 
-      <label id="orgs"><b>Accredited Student Organization:</b></label><br>
-      <input bold type="text" id="org" name="org" placeholder="e.g. University Student Organization"><br><br>
+      <label id="orgs"><b>Accredited Student Organization:</b></label>
+      <br>
+      <input bold type="text" id="org" name="org" placeholder="e.g. University Student Organization">
+      <br><br>
 
-      <label id="usernames"><b>Full Name:</b></label><br>
+      <label id="usernames"><b>Full Name:</b></label>
+      <br>
       <input bold type="text" id="username" name="username" placeholder="e.g. Lyra F. Eria"><br><br>
 
-      <label id="batch"><b>Course:</b></label><br>
-      <input bold type="text" id="batchs" name="batchs" placeholder="e.g. BSIE-ICT-3A"><br><br>
+      <label id="batch"><b>Course:</b></label>
+      <br>
+      <input bold type="text" id="batchs" name="batchs" placeholder="e.g. BSIE-ICT-3A">
+      <br><br>
 
-      <label id="concerns"><b>Student Number:</b></label><br>
-      <input bold type="text" id="cern" name="cern" placeholder="e.g. TUPC-20-**-**"><br>
+      <label id="concerns"><b>Student Number:</b></label>
+      <br>
+      <input bold type="text" id="cern" name="cern" placeholder="e.g. TUPC-20-**-**">
+      <br>
 
   <div id="gender">
       <p id="p2"><b>Gender:</b></p>
@@ -32,7 +39,8 @@
       <label id="circle">Male</label>
 
       <input type="radio"   id="female" name="gender" value="Female">
-      <label id="circle">Female</label><br><br>
+      <label id="circle">Female</label>
+      <br><br>
 
       <input type="submit" name="submit1" id="submit2" value="Submit">
   </div>

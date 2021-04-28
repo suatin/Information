@@ -3,7 +3,7 @@ from django.db import models
 class Item(models.Model):
 
 	#Date
-	today = models.DateTimeField(auto_now=True, null=True)
+	today = models.DateTimeField(null=True)
 	#Organization
 	org = models.CharField(max_length=20, null=True)
 	#Name
