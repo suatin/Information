@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<style>
+body {
+ background-color: #FEFCFF;
+  }
+
+#example1 {
+display: flex;
+  justify-content: center;
+  flex-direction: column;
+    border: #800517 solid 4px;
+    border-radius: 15px;
+    background-color: #FEFCFF;
+    padding: 0px;
+    margin: 80px;
+    color: black;
+    margin-top: 50px;
+    text-align: center;
+    font-style: italic;
+    box-shadow: 5px 10px #800517;
+}
+
+</style>
+</head>
+
+<body>
+<center>
+
+<div id="example1">
+  <h2>Contibution List</h2>
+  <p>"For the Students, By the Students"</p>
+</div>
+<body>
+    <table border="1">
+        <tr>
+            <th>Fullname</th>
+            <th>Course</th>
+            <th>Balance</th>
+            <th>Action</th>
+
+        </tr>
+        {% for member in object_list %}
+        <tr>
+            <td>{{ member.name }}</td>
+            <td>{{ member.course }}</td>
+            <td>{{ member.balance }}</td>
+
+            <td>
+                <a href="{% url 'student_detail' student.id %}">Detail</a><br>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="9"><b>Data is empty! Please, add data first.</b></td></tr>
+        {% endfor %}
+    </table>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<style>
+body {
+ background-color: #FEFCFF;
+  }
+
+#example1 {
+display: flex;
+  justify-content: center;
+  flex-direction: column;
+    border: #800517 solid 4px;
+    border-radius: 15px;
+    background-color: #FEFCFF;
+    padding: 0px;
+    margin: 80px;
+    color: black;
+    margin-top: 50px;
+    text-align: center;
+    font-style: italic;
+    box-shadow: 5px 10px #800517;
+}
+
+</style>
+</head>
+
+<body>
+<center>
+
+<div id="example1">
+  <h2>Activity List</h2>
+  <p>"For the Students, By the Students"</p>
+</div>
+<body>
+    <center>
+    <table border="1">
+        <tr>
+            <th>Adviser</th>
+            <th>Activity 1</th>
+            <th>Activity 2</th>
+            <th>Activity 3</th>
+            <th>Activity 4</th>
+            <th>Activity 5</th>
+            <th> Letter of Accreditted </th>
+            <th> Accomplishment Report </th>
+            <th>Action</th>
+
+        </tr>
+        {% for member in object_list %}
+        <tr>
+            <td>{{ member.adviser }}</td>
+            <td>{{ member.act1 }}</td>
+            <td>{{ member.act2 }}</td>
+            <td>{{ member.act3 }}</td>
+            <td>{{ member.act4 }}</td>
+            <td>{{ member.act5 }}</td>
+            <td>{{ member.letter }}</td>
+            <td>{{ member.report }}</td>
+
+
+            <td>
+                <a href="{% url 'student_detail' student.id %}">Detail</a><br>
+                <a href="{% url 'student_edit' student.id %}">Edit</a><br>
+                <a href="{% url 'student_edit' student.id %}">Delete</a><br>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="9"><b>Data is empty! Please, add data first.</b></td></tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>
