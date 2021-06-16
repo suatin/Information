@@ -1,214 +1,80 @@
 from django.db import models
 
 
+class Organization(models.Model):
+    org_name = models.CharField(max_length=30, default="")
+    academic_year = models.CharField(max_length=20, default="")
+    adviser = models.CharField(max_length=20, default="")
 
-class Mainpage(models.Model):
-	organization = models.CharField(max_length=10, default='none')
-	one=(('position', 'officer'),('position','member'))
-	position = models.CharField(max_length=10, choices=one, default='none')
-
-	def __str__(self):
-		return self.organization
-
-
-class Officer(models.Model):
-	Officer = models.ForeignKey(Mainpage, default=None, on_delete=models.CASCADE, null=True)
-	firstname = models.CharField(max_length=20, null=True)
-	middle = models.CharField(max_length=500, null=True)
-	surname = models.CharField(max_length=500, null=True)
-	course = models.CharField(max_length=500, null=True)
-	section = models.CharField(max_length=500, null=True)
-	number= models.CharField(max_length=500, null=True)
-	email = models.TextField (max_length=500, null=True)
-	position = models.CharField(max_length=500, null=True)
-	two=(('male', 'gender'),('female','gender'),('others','gender'))
-	gender = models.CharField(max_length=10, choices=two, default='none')
-	today = models.DateTimeField(null=True)
-	#option = models.ManyToManyField(Mainpage)
-
-	def __str__(self):
-		return self.Officer
+    def __str__(self):
+        return self.org_name
 
 
-class Member(models.Model):
-	Member = models.ForeignKey(Mainpage, default=None, on_delete=models.CASCADE, null=True)
-	firstname2 = models.CharField(max_length=50, null=True)
-	middle2 = models.CharField(max_length=10, null=True)
-	surname2 = models.CharField(max_length=50, null=True)
-	course2 = models.CharField(max_length=100, null=True)
-	section2 = models.CharField(max_length=100, null=True)
-	email2 = models.TextField(max_length=100, null=True)
-	number2 = models.CharField(max_length=100, null=True)
-	two=(('male', 'gender'),('female','gender'),('others','gender'))
-	gender2 = models.CharField(max_length=10, choices=two, default='none')
-	today2 = models.DateTimeField(null=True)
-	#option = models.ManyToManyField(Mainpage)
+# Office Details
+class OfficerDetails(models.Model):
+	officer = models.ForeignKey(Organization, default=None, on_delete=models.CASCADE)
+	firstname = models.CharField(max_length=20, default="")
+	middlename = models.CharField(max_length=20, default="")
+	surname = models.CharField(max_length=20, default="")
+	contactnumber = models.CharField(max_length=20, default="")
+	course_section = models.CharField(max_length=50, default="")
+	section = models.CharField(max_length=50, default="")
+	gender_choices =(
+		('M', 'Male'),
+		('F', 'Female'),
+		)
+	gender_officer = models.CharField(max_length=6,choices=gender_choices)
+	emailaddress = models.EmailField(max_length=50, default="")
+    #contactnumber = models.EmailField(max_length=50, default="")
+	studentIDnumber = models.CharField(max_length=20, default="")
+	position = models.CharField(max_length=10, default="")
 
 	def __str__(self):
-		return self.Member
-
-class Contribute(models.Model):
-	Contribution = models.ManyToManyField(Mainpage)
-	date = models.DateTimeField(null=True)
-
-	def __str__(self):
-		return self.Contribution
+		return self.name
 
 
-class Contribution2(models.Model):
-	Contribution2 = models.ManyToManyField(Mainpage)
-	fees = models.CharField(max_length=300, null=True)
-	display = models.CharField(max_length=100, null=True)
-
-	def __str__(self):
-		return self.Contribution2
-
-class Activities(models.Model):
-	Activities1 = models.ManyToManyField(Mainpage)
-	Adviser = models.CharField(max_length=300, null=True)
-	Aone = models.CharField(max_length=100, null=True)
-	Atwo = models.CharField(max_length=100, null=True)
-	Athree = models.CharField(max_length=100, null=True)
-	Afour = models.CharField(max_length=100, null=True)
-	Afive = models.CharField(max_length=100, null=True)
-
-	def __str__(self):
-		return self.Activities
-
-class ActivitiesDisplay(models.Model):
-	ActivitiesDisplay1 = models.ManyToManyField(Mainpage)
-	Adate = models.DateTimeField(null=True)
-	ASuggestion = models.CharField(max_length=100, null=True)
-	AComments = models.CharField(max_length=100, null=True)
-
-	def __str__(self):
-		return self.ActivitiesDisplay
-
-class survey(models.Model):
-	Sstrength = models.CharField(max_length=500, null=True)
-	Sweak = models.CharField(max_length=500, null=True)
-	SSuggestion = models.CharField(max_length=500, null=True)
-	SFeedback = models.CharField(max_length=100, null=True)
-
-	def __str__(self):
-		return self.strength
-
-
-
-'''
-class Mainpage(models.Model):
-	organization = models.CharField(max_length=10, default='none')
-
-	def __str__(self):
-		return self.organization
-
-class Officer(models.Model):
-	Officer = models.ForeignKey(Mainpage, default=None, on_delete=models.CASCADE, null=True)
-	firstname = models.CharField(max_length=20, null=True)
-	middle = models.CharField(max_length=500, null=True)
-	surname = models.CharField(max_length=500, null=True)
-	course = models.CharField(max_length=500, null=True)
-	section = models.CharField(max_length=500, null=True)
-	number= models.CharField(max_length=500, null=True)
-	email = models.TextField (max_length=500, null=True)
-	position = models.CharField(max_length=500, null=True)
-	two=(('male', 'gender'),('female','gender'))
-	gender = models.CharField(max_length=10, choices=two, default='none')
-	today = models.DateTimeField(null=True)
-	option = models.ManyToManyField(Mainpage)
-
-	def __str__(self):
-		return self.Officer
-
-
-
-class Mainpage(models.Model):
-	organization = models.CharField(max_length=10, default='none')
-	Oone=(('officer1', 'position'),('member','position'))
-	Oposition = models.CharField(max_length=10, choices=Oone, default='none')
-
-	def __str__(self):
-		return self.organization
-
-class Officerchoice(models.Model):
-	Officer = models.ForeignKey(Mainpage, default=None, on_delete=models.CASCADE, null=True)
-	firstname = models.CharField(max_length=20, null=True)
-	middle = models.CharField(max_length=500, null=True)
-	surname = models.CharField(max_length=500, null=True)
-	course = models.CharField(max_length=500, null=True)
-	section = models.CharField(max_length=500, null=True)
-	number= models.CharField(max_length=500, null=True)
-	email = models.TextField (max_length=500, null=True)
-	position = models.CharField(max_length=500, null=True)
-	two=(('male', 'gender'),('female','gender'))
-	gender = models.CharField(max_length=10, choices=two, default='none')
-	today = models.DateTimeField(null=True)
-	option = models.ManyToManyField(Mainpage)
-
-	def __str__(self):
-		return self.Officer
-
-class Memberchoice(models.Model):
-	Member = models.ForeignKey(Mainpage, default=None, on_delete=models.CASCADE, null=True)
-	firstname2 = models.CharField(max_length=50, null=True)
-	middle2 = models.CharField(max_length=10, null=True)
-	surname2 = models.CharField(max_length=50, null=True)
-	course2 = models.CharField(max_length=100, null=True)
-	section2 = models.CharField(max_length=100, null=True)
-	email2 = models.TextField(max_length=100, null=True)
-	number2 = models.CharField(max_length=100, null=True)
-	three=(('male', 'gender'),('female','gender'))
-	gender2 = models.CharField(max_length=10, choices=three, default='none')
-	today2 = models.DateTimeField(null=True)
-	option = models.ManyToManyField(Mainpage)
+# Member Details
+class MemberDetails(models.Model):
+	Member = models.ForeignKey(Organization, default=None, on_delete=models.CASCADE)
+	M_firstname = models.CharField(max_length=20, default="")
+	M_middlename = models.CharField(max_length=20, default="")
+	M_surname = models.CharField(max_length=20, default="")
+	M_course_section = models.CharField(max_length=50, default="")
+	M_section = models.CharField(max_length=50, default="")
+	M_emailaddress = models.EmailField(max_length=50, default="")
+	M_contactnumber = models.EmailField(max_length=50, default="")
+	M_studentIDnumber = models.CharField(max_length=20, default="")
+	gender_choicess =(
+        ('M', 'Male'),
+        ('F', 'Female'),
+        )
+	gender_member = models.CharField(max_length=6,choices=gender_choicess)
 
 
 	def __str__(self):
-		return self.Member
+		return self.M_name
 
-class Contribute(models.Model):
-	Contribution = models.ManyToManyField(Mainpage)
-	date = models.DateTimeField(null=True)
-
-	def __str__(self):
-		return self.Contribution
-
-
-class Contribution2(models.Model):
-	Contribution2 = models.ManyToManyField(Mainpage)
-	Mdate = models.DateTimeField(null=True)
+class ActivitiesDetails(models.Model):
+	Activities = models.ForeignKey(OfficerDetails, default=None, on_delete=models.CASCADE)
+	Poposed_Date = models.DateField(auto_now_add=False, auto_now=False)
+	Description_Activities = models.CharField(max_length=50, default="")
+    #Proposed Activities
+	name_proposed_activities = models.CharField(max_length=20, default="")
+	target_paticipant = models.CharField(max_length=20,default="")
+	paticipant_number = models.IntegerField(max_length=20,default=0)
+	estimated_Budget = models.IntegerField(max_length=20,default=0)
 
 	def __str__(self):
-		return self.Contribution2
+		return self.Poposed_Date
 
-class Activities(models.Model):
-	Activities1 = models.ManyToManyField(Mainpage)
-	Adviser = models.CharField(max_length=300, null=True)
-	Aone = models.CharField(max_length=100, null=True)
-	Atwo = models.CharField(max_length=100, null=True)
-	Athree = models.CharField(max_length=100, null=True)
-	Afour = models.CharField(max_length=100, null=True)
-	Afive = models.CharField(max_length=100, null=True)
 
-	def __str__(self):
-		return self.Activities1
-
-class ActivitiesDisplay(models.Model):
-	ActivitiesDisplay1 = models.ManyToManyField(Mainpage)
-	Adate = models.DateTimeField(null=True)
-	ASuggestion = models.CharField(max_length=100, null=True)
-	AComments = models.CharField(max_length=100, null=True)
+class ReportDetails(models.Model):
+	Report = models.ForeignKey(ActivitiesDetails, default=None, on_delete=models.CASCADE)
+	Status = models.CharField(max_length=100,default="")
+	#Accomplishment_Report = models.FileField(blank=True, Null=True)
+	#Overallrating
+	Evaluation_Report = models.TextField(max_length=100,default="")
+	Description = models.TextField(max_length=100,default="")
 
 	def __str__(self):
-		return self.ActivitiesDisplay1
-
-class survey(models.Model):
-	Sstrength = models.CharField(max_length=500, null=True)
-	Sweak = models.CharField(max_length=500, null=True)
-	SSuggestion = models.CharField(max_length=500, null=True)
-	SFeedback = models.CharField(max_length=100, null=True)
-
-	def __str__(self):
-		return self.Sstrength'''
-
-
+		return self.Report

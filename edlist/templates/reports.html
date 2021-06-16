@@ -1,0 +1,344 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ACSO</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+		}
+
+		.header {
+			background: rgb(137,0,0);
+			color: #ffffff;
+			/*border: 1px solid #000000;*/
+			padding: 15px;
+		}
+
+		.row::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+
+		[class*="col-"] {
+			float: left;
+			padding: 15px;
+			/*border: 1px solid #000000;*/
+		}
+
+		.col-1 {width: 8.33%;}
+		.col-2 {width: 16.66%;}
+		.col-3 {width: 25%;}
+		.col-4 {width: 33.33%;}
+		.col-5 {width: 41.66%;}
+		.col-6 {width: 50%;}
+		.col-7 {width: 58.33%;}
+		.col-8 {width: 66.66%;}
+		.col-9 {width: 75%;}
+		.col-10 {width: 83.33%;}
+		.col-11 {width: 91.66%;}
+		.col-12 {width: 100%;}
+	</style>
+	<style type="text/css">
+
+		.center {
+			background: #ffffff;
+			border-radius: 2px;
+			margin: auto;
+			width: 30%;
+			/*border: 3px solid green;*/
+			padding: 30px;
+		}
+
+		@font-face {
+			font-family: GothamBook;
+			src: url(GothamBook.otf);
+		}
+
+		* {
+			font-family: GothamBook !important;
+		}
+
+		ul li {
+			display:inline;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		ul li a {
+			color: #ffffff;
+			font-size: 20px !important;
+			text-decoration: none;
+		}
+
+		ul li a:hover {
+			border-bottom: 3px solid #ffffff;
+			padding: 10px;
+		}
+
+		input[type="text"] {
+			display: block;
+			width: 100%;
+			padding: .375rem .75rem;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #212529;
+			background-color: #fff;
+			background-clip: padding-box;
+			border: 1px solid #ced4da;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			border-radius: .25rem;
+			transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+			margin-top: 10px !important;
+		}
+
+		select {
+			display: block;
+			width: 100%;
+			padding: .375rem 2.25rem .375rem .75rem;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #212529;
+			background-color: #fff;
+			background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e);
+			background-repeat: no-repeat;
+			background-position: right .75rem center;
+			background-size: 16px 12px;
+			border: 1px solid #ced4da;
+			border-radius: .25rem;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			margin-top: 10px !important;
+		}
+
+
+		/*button {
+			color: #fff !important;
+		    background-color: #0b5ed7 !important;
+		    border-color: #0a58ca !important;
+			display: inline-block;
+		    font-weight: 400;
+		    line-height: 1.5;
+		    color: #212529;
+		    text-align: center;
+		    text-decoration: none;
+		    vertical-align: middle;
+		    cursor: pointer;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    user-select: none;
+		    background-color: transparent;
+		    border: 1px solid transparent;
+		    padding: .375rem .75rem;
+		    font-size: 1rem;
+		    border-radius: .25rem;
+		    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		    }*/
+
+		    .form-group {
+		    	margin-bottom: 10px;
+		    }
+
+
+		</style>
+
+		<style>
+			/* The container */
+			.container {
+				display: block;
+				position: relative;
+				padding-left: 35px;
+				margin-bottom: 12px;
+				cursor: pointer;
+				font-size: 16px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			/* Hide the browser's default radio button */
+			.container input {
+				position: absolute;
+				opacity: 0;
+				cursor: pointer;
+			}
+
+			/* Create a custom radio button */
+			.checkmark {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 25px;
+				width: 25px;
+				background-color: #eee;
+				border-radius: 50%;
+			}
+
+			/* On mouse-over, add a grey background color */
+			.container:hover input ~ .checkmark {
+				background-color: #ccc;
+			}
+
+			/* When the radio button is checked, add a blue background */
+			.container input:checked ~ .checkmark {
+				background-color: #2196F3;
+			}
+
+			/* Create the indicator (the dot/circle - hidden when not checked) */
+			.checkmark:after {
+				content: "";
+				position: absolute;
+				display: none;
+			}
+
+			/* Show the indicator (dot/circle) when checked */
+			.container input:checked ~ .checkmark:after {
+				display: block;
+			}
+
+			/* Style the indicator (dot/circle) */
+			.container .checkmark:after {
+				top: 9px;
+				left: 9px;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: white;
+			}
+		</style>
+		<style type="text/css">
+			body {
+				background: url('{% static 'img/8.jpg' %}');
+			}
+		</style>
+	</head>
+	<body>
+	<!-- <div class="header">
+	  <h1>ACSO</h1>
+	</div> -->
+
+
+	<section style="background: rgb(137,0,0)">
+		<div class="row">
+			<div class="col-3">
+				<h1 style="color: #ffffff; font-size: 35px !important; padding: 0; margin: 0; margin-top: 10px; margin-left: 40px;">ACSO</h1>
+			</div>
+
+			<div class="col-9">
+				<ul>
+					<li><a href="home.html">About</a></li>
+					<li><a href="organization.html">Organization</a></li>
+					<li><a href="dual.html">Classification</a></li>
+					<li><a href="activities.html">Activities</a></li>
+					<li><a href="reports.html">Reports</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+
+
+	<section>
+		<div class="row">
+			<div class="center" style="border: 1px solid #ffffff; margin-top: 20px; -webkit-box-shadow: 0px 4px 0px 8px #890000; 
+			box-shadow: 0px 4px 0px 8px #890000;">
+			<p id="demo"></p>
+
+			<script>
+				var myVar = setInterval(myTimer, 1000);
+
+				function myTimer() {
+					var d = new Date();
+					document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+				}
+			</script>
+
+			<div class="form-group">
+				<h1>Reports</h1>
+			</div>
+			<div class="form-group">
+				<label>Proposed Date</label>
+				<input type="date" id="idDDate">
+				<script>
+					{
+						document.getElementById("idDDate").valueAsDate = new Date()
+					}
+				</script>
+			</div>
+
+			<div class="form-group">
+				<label>Status</label>
+				<input type="text" id="status" name="status" />
+			</div>
+
+
+				<!-- <div class="form-group">
+					<label>First Name</label>
+					<input type="text" />
+				</div>
+				<div class="form-group">
+					<label>Middle Name</label>
+					<input type="text" />
+				</div>
+				<div class="form-group">
+					<label>Last Name</label>
+					<input type="text" />
+				</div> -->
+				<div class="form-group">
+					<label>Accomplishment Report</label>
+					<input type="file" style="margin-top: 10px;" />
+				</div>
+				<div class="form-group">
+					<label>Evaluation Report</label>
+					<input type="file" style="margin-top: 10px;" />
+				</div>
+				<div class="form-group">
+					<label>Overall Rating</label>
+					<div style="margin-top: 10px;">
+						<label class="container">Excellent
+							<input type="radio" checked="checked" name="radio">
+							<span class="checkmark"></span>
+						</label>
+						<label class="container">Good
+							<input type="radio" name="radio">
+							<span class="checkmark"></span>
+						</label>
+						<label class="container">Fairly Good
+							<input type="radio" name="radio">
+							<span class="checkmark"></span>
+						</label>
+						<label class="container">Fairly Poor
+							<input type="radio" name="radio">
+							<span class="checkmark"></span>
+						</label>
+						<label class="container">Poor
+							<input type="radio" name="radio">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<h3>Description Activities:</h3>
+				<div class = "form-row">
+					<div class = "input-data textarea">
+						<textarea cols="25" rows="7" required></textarea>
+					</div><br>
+
+					<div class="form-group">
+						<button type="button"> <a href="display.html">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</body>
+	</html>

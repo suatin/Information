@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    *{ margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family:sans-serif;
+
+    }
+    h1{
+      font-family: font-family: GothamBook !important;}
+
+      @font-face {
+        font-family: GothamBook;
+        src: url(GothamBook.otf);
+      }
+
+      nav{
+        background: rgb(137,0,0);
+        position:fixed;
+        width: 100%;
+        z-index: 999;
+        height: 80px;
+        line-height: 65px;
+
+
+      }
+      nav p{
+        max-width: 1250px;
+        padding: 0 30px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #f2f2f2;
+        font-size: 35px;
+        font-family: Lobster;
+        src: url(GothamBook.otf);
+
+      }
+
+      .hidden
+      {
+        display:none;
+
+      }
+      .shown
+      {
+        display:block;
+
+      }
+
+    </style>
+
+
+  </head>
+
+  <script type="text/javascript">
+    function showDiv (divId)
+    {
+      var div = document.getElementById (divId);
+      var divs = document.getElementsByTagName('div');
+      for (var i in divs) 
+      {
+        divs [i].className = "hidden";
+      }
+      div.className = "shown";
+    }
+  </script>
+
+  <body>
+    <nav>   
+      <p> ACSO </p>           
+    </nav>
+
+    <form id="frm1" class="form" action="Call" method="POST">
+      {% csrf_token %}
+      <center><br><br><br><br><br><br>
+
+        <h1><i>"For the Students, By the Students"</i></h1><br><br>
+        <p>Willing to collect your Personal Information?</p><br>
+        <input type="radio" id="yes" name="question" value="Yes"> Yes
+        <input type="radio" id="no" name="question" value="No"> No<br><br>
+        <p>Choose your Classification</p><br>
+        <input type="radio" onclick="showDiv ('1')" name="selectme" id=""> Officer</input> &nbsp;&nbsp;
+        <input type="radio" onclick="showDiv ('2')" name="selectme" id=""> Member </input>
+        &nbsp;&nbsp;
+
+        <div id="1" class="hidden"><br> Fullname: <input type="text" id="gcashh" name="gcashh"><br><br>
+          Course: <input type="text" id="gcashh" name="gcashh">
+          Section: <input type="text" id="gcashh" name="gcashh"> <br><br>
+          Email Address: <input type="text" id="gcashh" name="gcashh"> <br><br>
+          Student ID Number: <input type="text" id="gcashh" name="gcashh"> <br><br>
+          Contact Number: <input type="text" id="gcashh" name="gcashh"> <br><br>
+          Position: <input type="text" id="gcashh" name="gcashh"><br><br>
+          <p>Gender</p><br>
+          <input type="radio" id="gcashh" name="gcashh">Male</input> 
+          <input type="radio" id="gcashh" name="gcashh">Female</input>
+          <br>
+          <button type="button"> <a href="activities.html">Submit</a></button>
+          <input type="button" onclick="myFunction()" value="Reset">
+        </form>
+
+        <script>
+          function myFunction() {
+            document.getElementById("frm1").reset();
+          }</script>
+
+        </div>
+
+        <div id="2" class="hidden"><br> Fullname: <input type="text" id="gcashh" name="gcashh">&nbsp;<br><br>
+          Course: <input type="text" id="gcashh" name="gcashh">
+          Section: <input type="text" id="gcashh" name="gcashh"> <br><br>
+          Email Address: <input type="text" id="gcashh" name="gcashh"> <br><br>
+          Student ID Number: <input type="text" id="gcashh" name="gcashh"> <br><br>
+          Contact Number: <input type="text" id="gcashh" name="gcashh"><br><br>
+          <p>Gender</p><br>
+          <input type="radio" id="gcashh" name="gcashh"> Male </input> 
+          <input type="radio" id="gcashh" name="gcashh"> Female </input>
+          <button onclick="myFunction()">Try it</button>
+          <br> <br>
+          <button type="button"> <a href="activities.html">Submit</a></button>
+          <input type="button" onclick="myFunction()" value="Reset">
+          </form>
+
+        <script>
+          function myFunction() {
+            document.getElementById("frm1").reset();
+          }</script>
+
+        </div>
+
+        <div class="form-group"><br>
+          <button type="button"> <a href="activities.html">Submit</a></button>
+
+        </div>
+      </form> 
+
+    </body>
+    </html>

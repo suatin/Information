@@ -1,14 +1,10 @@
 from django.contrib import admin
-from .models import Mainpage, Officer, Member, Contribute, Contribution2, Activities, ActivitiesDisplay, survey
+from .models import Organization, OfficerDetails, MemberDetails, ReportDetails, ActivitiesDetails
 
-admin.site.register(Mainpage)
-admin.site.register(Officer)
-admin.site.register(Member)
-admin.site.register(Contribute)
-admin.site.register(Contribution2)
-admin.site.register(Activities)
-admin.site.register(ActivitiesDisplay)
-admin.site.register(survey)
-
+admin.site.register(Organization)
+admin.site.register(OfficerDetails)
+admin.site.register(ActivitiesDetails)
+admin.site.register(ReportDetails)
+admin.site.register(MemberDetails)
 
 # Register yoxzur models here.

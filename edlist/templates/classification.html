@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ACSO</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		* {
+		  box-sizing: border-box;
+		}
+
+		.header {
+		  background: rgb(137,0,0);
+		  color: #ffffff;
+		  /*border: 1px solid #000000;*/
+		  padding: 15px;
+		}
+
+		.row::after {
+		  content: "";
+		  clear: both;
+		  display: table;
+		}
+
+		[class*="col-"] {
+		  float: left;
+		  padding: 15px;
+		  /*border: 1px solid #000000;*/
+		}
+
+		.col-1 {width: 8.33%;}
+		.col-2 {width: 16.66%;}
+		.col-3 {width: 25%;} 
+		.col-4 {width: 33.33%;}
+		.col-5 {width: 41.66%;}
+		.col-6 {width: 50%;}
+		.col-7 {width: 58.33%;}
+		.col-8 {width: 66.66%;}
+		.col-9 {width: 75%;}
+		.col-10 {width: 83.33%;}
+		.col-11 {width: 91.66%;}
+		.col-12 {width: 100%;}
+	</style>
+	<style type="text/css">
+
+		.center {
+			background: #ffffff;
+			border-radius: 2px;
+		  margin: auto;
+		  width: 30%;
+		  /*border: 3px solid green;*/
+		  padding: 10px;
+		}
+
+		@font-face {
+		  font-family: GothamBook;
+		  src: url(GothamBook.otf);
+		}
+
+		* {
+			font-family: GothamBook !important;
+		}
+
+		ul li {
+			display:inline;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		ul li a {
+			color: #ffffff;
+			font-size: 20px !important;
+			text-decoration: none;
+		}
+
+		ul li a:hover {
+			border-bottom: 3px solid #ffffff;
+			padding: 10px;
+		}
+
+	
+
+	</style>
+	<style type="text/css">
+		body {
+			background: #e1e1e1;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div class="header">
+	  <h1>ACSO</h1>
+	</div> -->
+	<section style="background: rgb(137,0,0)">
+		<div class="row">
+			<div class="col-3">
+			  <h1 style="color: #ffffff; font-size: 35px !important; padding: 0; margin: 0; margin-top: 10px; margin-left: 40px;">ACSO</h1>
+			</div>
+
+			<div class="col-9">
+			  <ul>
+			    <li><a href="home.html">Home</a></li>
+			    <li><a href="organization.html">Organization</a></li>
+			    <li><a href="classification.html">Classification</a></li>
+			    <li><a href="activities.html">Activities</a></li>
+			    <li><a href="reports.html">Reports</a></li>
+			  </ul>
+			</div>
+		</div>
+	</section>
+		
+		<body>
+		<center>
+		<form class="form" action="Call" method="POST">
+
+	<h1><i>"For the Students, By the Students"</i></h1>
+
+  	<p>Willing for home visiting tutor or student come from your house?</p><br>
+	<input type="radio" id="yes" name="question" value="Yes"> Yes
+	<input type="radio" id="no" name="question" value="No"> No<br><br>
+
+
+
+	<p>Choose your classification </p>
+    <input type="radio" onclick="showDiv ('1')" name="selectme" id="Officer"> Officer </input> 
+    <input type="radio" onclick="showDiv ('2')" name="selectme" id="Member"> Member </input><br>
+
+   
+
+      <div id="1" class="hidden"> Firstname: <input type="text" id="gcashh" name="gcashh">
+                                Middlename: <input type="text" id="gcashh" name="gcashh"> 
+                                Surname: <input type="text" id="gcashh" name="gcashh"><br><br>
+                                Course: <input type="text" id="gcashh" name="gcashh">
+                                Section: <input type="text" id="gcashh" name="gcashh"> <br><br>
+                                Email Address: <input type="text" id="gcashh" name="gcashh"> <br><br>
+                                Student ID Number: <input type="text" id="gcashh" name="gcashh"> <br><br>
+                                Contact Number: <input type="text" id="gcashh" name="gcashh"> <br><br>
+                                Position: <input type="text" id="gcashh" name="gcashh">
+                                <p>Gender</p>
+                                <input type="radio" id="gcashh" name="gcashh">Male</input> 
+                                <input type="radio" id="gcashh" name="gcashh">Female</input><br><br><br><br>
+    							</div>
+
+    <div id="2" class="hidden"> Firstname: <input type="text" id="gcashh" name="gcashh">&nbsp;
+                                Middlename: <input type="text" id="gcashh" name="gcashh"> 
+                                Surname: <input type="text" id="gcashh" name="gcashh"><br><br>
+                                Course: <input type="text" id="gcashh" name="gcashh">
+                                Section: <input type="text" id="gcashh" name="gcashh"> <br><br>
+                                Email Address: <input type="text" id="gcashh" name="gcashh"> <br><br>
+                                Student ID Number: <input type="text" id="gcashh" name="gcashh"> <br><br>
+                                Contact Number: <input type="text" id="gcashh" name="gcashh"> 
+                                <p>Gender</p>
+                                <input type="radio" id="gcashh" name="gcashh"> Male </input> 
+                                <input type="radio" id="gcashh" name="gcashh"> Female </input><br><br>
+								</div>
+
+
+			<div class="button">
+            <input> <a href="dual.html" type="submit" name="Submit">
+            </div>
+	
+  	
+		</form> 
+		</body>
+		</html>
